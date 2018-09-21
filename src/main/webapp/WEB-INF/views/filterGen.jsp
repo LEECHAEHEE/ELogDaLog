@@ -295,6 +295,7 @@ function singleFd(){
 		var fdInfoDoc = fdInfo.slice(0,-1);//filenameItem
 		var fdInfoSeq = fdInfo.charAt(fdInfo.length - 1);//3
 		
+		//이 부분은 server:word2, service:word2 와 같이 묶어둔 정보를 만들어 두고 사용하는 방식으로 변경해야함.
 		if(fdInfoDoc == "filenameItem"){
 			if(fieldName[fn] == "server")
 				fnList[fdInfoSeq] = fnList[fdInfoSeq].replace("{fnSepInv}","{WORD2:"+fieldName[fn]+"}");
@@ -314,10 +315,6 @@ function singleFd(){
 				ldList[fdInfoSeq] = ldList[fdInfoSeq].replace("{ldSepInv}","{DATENUM2:"+fieldName[fn]+"}");
 			else if(fieldName[fn] == "access_time")
 				ldList[fdInfoSeq] = ldList[fdInfoSeq].replace("{ldSepInv}","{TIME:"+fieldName[fn]+"}");
-			else if(fieldName[fn] == "server")
-				fnList[fdInfoSeq] = fnList[fdInfoSeq].replace("{fnSepInv}","{WORD2:"+fieldName[fn]+"}");
-			else if(fieldName[fn] == "service")
-				fnList[fdInfoSeq] = fnList[fdInfoSeq].replace("{fnSepInv}","{WORD2:"+fieldName[fn]+"}");
 			else
 				ldList[fdInfoSeq] = ldList[fdInfoSeq].replace("{ldSepInv}","{ldSepInv:"+fieldName[fn]+"}");
 		}
